@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<div class="d-flex p-3 justify-content-around" style = "width:40%; margin:auto">
+    <div class="d-flex justify-content-center" >
+      <a class="btn btn-warning hover:border-transparent hover:text-dark hover:bg-green-700 " href="{% url 'homepage' %}">All</a>
+      </div>
+      {% for category in categories %}
+      <div class="d-flex justify-content-center">
+          <a class="btn btn-warning hover:border-transparent hover:text-dark hover:bg-green-700"  href="{% url 'Categorywise' category.name%}">{{category.name}}</a>
+        </div>
+      {% endfor %}
+
+</div>
+
+<div class="d-flex flex-wrap justify-content-center">
+    {% for book in books %}
+    <div class="d-flex mb-3 p-3 mb-sm-0 justify-content-center">
+        <div class="card mb-3 " style="width: 25rem;">
+            <img src="{{book.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body text-center bg-white">
+              <h3 class="card-title"><b>{{book.title}}</b></h3>
+              <h6 class="fw-normal"><b>Description:</b> {{book.description | truncatechars:50}}</h6>
+              <h5 class="fw-normal"><b>Price: ${{book.borrowing_price}}</b></h5>
+            </div>
+            <div class="card-footer text-center bg-white border-0">
+              <a href="{% url 'bookDetails' book.id %}" class="btn btn-success">Book Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
