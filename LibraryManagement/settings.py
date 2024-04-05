@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-@i)f5oi0h3bmg9gx8)31ri(&+(22me%gry0_r!=62*ypdpz-cw
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS = ['https://mamar-bank.onrender.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://librarymanagement-ks4r.onrender.com','https://*.127.0.0.1']
 
 # Application definition
 
